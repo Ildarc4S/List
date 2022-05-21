@@ -20,7 +20,8 @@ int main()
 	}
 
 	std::cout << "\n";
-	//tests, ne trogai biliet!
+
+	//test, ne trogai biliet!hhh
 	list.sort();
 
 	auto listB = list.begin();
