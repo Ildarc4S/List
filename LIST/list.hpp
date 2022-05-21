@@ -442,21 +442,12 @@ public:
 		}
 	}
 
-
+	//вызов сортировки
 	void sort()
 	{
 		quickSort(Begin, End);
 	}
-	//void quickSort(int arr[], int left, int right)
-	//{
-	//	if (left >= right)
-	//		return;
 
-	//	Node<T> pivot = partition(left, right);
-
-	//	quickSort(arr, left, pivot - 1);
-	//	quickSort(arr, pivot + 1, right);
-	//}
 
 private:
 	Node<T>* Begin;

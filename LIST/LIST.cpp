@@ -4,6 +4,7 @@
 int main()
 {
 	srand(time(NULL));
+
 	List<int> list;
 
 	for (int i{}; i < 20; i++)
