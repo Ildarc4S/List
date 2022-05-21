@@ -3,16 +3,25 @@
 
 int main()
 {
+	srand(time(NULL));
 	List<int> list;
 
-	for (int i{}; i < 10; i++)
+	for (int i{}; i < 20; i++)
 	{
 		list.push_back(rand() % 100 + 20);
 	}
 
+	auto listAB = list.begin();
+	auto listAE = list.end();
 
+	for (listAB; listAB != listAE; listAB++)
+	{
+		std::cout << *listAB << " ";
+	}
+
+	std::cout << "\n";
 	//tests, ne trogai biliet!
-	//list.partition();
+	list.sort();
 
 	auto listB = list.begin();
 	auto listE = list.end();

@@ -143,7 +143,8 @@ public:
 			Count++;
 		}
 		return pos;
-	}	//<	ý
+	}	
+
 	Iterator& insert(Iterator pos, int n, const T& value)
 	{
 		for (int i = 0; i < n; i++)
@@ -405,31 +406,53 @@ public:
 		}
 	}
 
-	void partition()
+	//  QUICK_SORT  //
+	Node<T>* partition(Node<T> *left, Node<T> *right)
 	{
-		//int pivot = arr[right];
-		Node<T>* pivot = End;
-		//int j = left - 1;
+		Node<T>* pivot = right;
 		Node<T>* j = new Node<T>;
-		j->pNext = Begin;
-		Begin->pRev = j;
+		j->pNext = left;
+		left->pRev = j;
+		
 
-		for (Node<T> *i = Begin; i != nullptr; i = i->pNext)
+		for (Node<T> *i = left; i != right; i = i->pNext)
 		{
 			if (i->value < pivot->value)
 			{
-				j=j->pNext;
+				j = j->pNext;
 				Swap(i, j);
 			}
+
 		}
-		Swap(j->pNext, pivot);
+
+		j = j->pNext;
+
+		Swap(j, pivot);
+
+		return j;
+	}
+	void quickSort(Node<T>* left, Node<T>* right)
+	{
+		if (right != nullptr && left != right->pNext && left != right)
+		{
+			Node<T>* pivot = partition(left, right);
+
+			quickSort(left, pivot->pRev);
+			quickSort(pivot->pNext, right);
+		}
+	}
+
+
+	void sort()
+	{
+		quickSort(Begin, End);
 	}
 	//void quickSort(int arr[], int left, int right)
 	//{
 	//	if (left >= right)
 	//		return;
 
-	//	Node<T> pivot = partition(, left, right);
+	//	Node<T> pivot = partition(left, right);
 
 	//	quickSort(arr, left, pivot - 1);
 	//	quickSort(arr, pivot + 1, right);
