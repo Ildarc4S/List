@@ -21,7 +21,7 @@ int main()
 
 	std::cout << "\n";
 
-	//test, ne trogai biliet!hhh
+	//test, ne trogai biliet!
 	list.sort();
 
 	auto listB = list.begin();
